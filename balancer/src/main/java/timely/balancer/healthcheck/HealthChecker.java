@@ -12,7 +12,7 @@ public class HealthChecker {
 
     private List<TimelyBalancedHost> timelyHosts;
     private Timer timer;
-    final private TCPServerHealthCheck tcpServerHealthCheck;
+    private final TCPServerHealthCheck tcpServerHealthCheck;
     private TimerTask check = new TimerTask() {
 
         @Override

@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 
 public abstract class ClientHandler extends Endpoint {
 
-    private final static Logger LOG = LoggerFactory.getLogger(ClientHandler.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ClientHandler.class);
 
     @Override
     public void onOpen(Session session, EndpointConfig config) {

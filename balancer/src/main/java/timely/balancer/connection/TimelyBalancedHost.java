@@ -40,11 +40,11 @@ public class TimelyBalancedHost {
         this.udpPort = basePort + 3;
     }
 
-    static public TimelyBalancedHost of(String host, int tcpPort, int httpPort, int wsPort, int udpPort) {
+    public static TimelyBalancedHost of(String host, int tcpPort, int httpPort, int wsPort, int udpPort) {
         return new TimelyBalancedHost(host, tcpPort, httpPort, wsPort, udpPort);
     }
 
-    static public TimelyBalancedHost of(String host, int basePort) {
+    public static TimelyBalancedHost of(String host, int basePort) {
         return new TimelyBalancedHost(host, basePort);
     }
 
@@ -52,7 +52,7 @@ public class TimelyBalancedHost {
         this.config = config;
     }
 
-    synchronized public boolean isUp() {
+    public synchronized boolean isUp() {
         return isUp;
     }
 

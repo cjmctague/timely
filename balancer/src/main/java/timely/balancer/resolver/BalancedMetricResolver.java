@@ -33,7 +33,7 @@ public class BalancedMetricResolver implements MetricResolver {
     private StampedLock metricMapLock = new StampedLock();
     private Map<Integer, TimelyBalancedHost> serverMap = new HashMap<>();
     private Random r = new Random();
-    final private HealthChecker healthChecker;
+    private final HealthChecker healthChecker;
     private Timer timer = new Timer("RebalanceTimer", true);
     private long balanceUntil = System.currentTimeMillis() + 1800000l;
     private int roundRobinCounter = 0;

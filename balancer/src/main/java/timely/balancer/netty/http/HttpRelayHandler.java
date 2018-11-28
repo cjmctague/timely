@@ -174,7 +174,7 @@ public class HttpRelayHandler extends SimpleChannelInboundHandler<HttpRequest> i
         }
     }
 
-    static public class MyByteArrayOutputStream extends ByteArrayOutputStream {
+    public static class MyByteArrayOutputStream extends ByteArrayOutputStream {
 
         public MyByteArrayOutputStream() {
         }
@@ -192,7 +192,7 @@ public class HttpRelayHandler extends SimpleChannelInboundHandler<HttpRequest> i
         }
     }
 
-    static public String encodeURI(String s) {
+    public static String encodeURI(String s) {
         try {
             s = s.replaceAll("\\{", URLEncoder.encode("{", "UTF-8"));
             s = s.replaceAll("\\}", URLEncoder.encode("}", "UTF-8"));

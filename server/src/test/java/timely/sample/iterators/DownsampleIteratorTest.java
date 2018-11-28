@@ -29,8 +29,8 @@ import timely.sample.aggregators.Avg;
 
 public class DownsampleIteratorTest {
 
-    final private SortedMap<Key, Value> testData1 = new TreeMap<>();
-    final private SortedMap<Key, Value> testData2 = new TreeMap<>();
+    private final SortedMap<Key, Value> testData1 = new TreeMap<>();
+    private final SortedMap<Key, Value> testData2 = new TreeMap<>();
 
     @Before
     public void before() {
@@ -145,7 +145,7 @@ public class DownsampleIteratorTest {
         }
     }
 
-    static public class SampleObject implements ObjectSizeOf {
+    public static class SampleObject implements ObjectSizeOf {
 
         private long sizeInBytes = 0;
 

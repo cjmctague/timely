@@ -19,15 +19,15 @@ public class WsClientHolder {
         this.client = client;
     }
 
-    synchronized public WebSocketSubscriptionClient getClient() {
+    public synchronized WebSocketSubscriptionClient getClient() {
         return client;
     }
 
-    synchronized public TimelyBalancedHost getHost() {
+    public synchronized TimelyBalancedHost getHost() {
         return host;
     }
 
-    synchronized public void close(WsClientPool wsClientPool) {
+    public synchronized void close(WsClientPool wsClientPool) {
         if (client != null && host != null) {
             try {
                 client.close();

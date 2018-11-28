@@ -200,7 +200,7 @@ public class MetricScanner extends Thread implements UncaughtExceptionHandler {
         }
     }
 
-    synchronized private void sendCompletedResponse() {
+    private synchronized void sendCompletedResponse() {
         if (!completedResponseSent) {
             LOG.debug("Sending completed response for subscription {}", this.subscriptionId);
             final MetricResponse completedResponse = new MetricResponse();

@@ -22,8 +22,8 @@ public class GorillaStore {
     private StampedLock archivedCompressorLock = new StampedLock();
     private StampedLock currentCompressorLock = new StampedLock();
 
-    transient private WrappedGorillaCompressor current = null;
-    transient private List<Metric> metricCache = new ArrayList<>();
+    private transient WrappedGorillaCompressor current = null;
+    private transient List<Metric> metricCache = new ArrayList<>();
 
     private long oldestTimestamp = Long.MAX_VALUE;
     private long newestTimestamp = -1;

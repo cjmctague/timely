@@ -16,7 +16,7 @@ import timely.model.Value;
 
 public class TestMemoryDataStore {
 
-    static private Configuration configuration = null;
+    private static Configuration configuration = null;
 
     @BeforeClass
     public static void setup() {

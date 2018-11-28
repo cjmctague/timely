@@ -43,7 +43,7 @@ import timely.test.integration.OneWaySSLBase;
 @Category(IntegrationTest.class)
 public class WebSocketClientIT extends OneWaySSLBase {
 
-    private final static Logger LOG = LoggerFactory.getLogger(WebSocketClientIT.class);
+    private static final Logger LOG = LoggerFactory.getLogger(WebSocketClientIT.class);
     private static final Long TEST_TIME = System.currentTimeMillis() - (240 * 1000);
 
     private static SSLContext sslCtx = null;

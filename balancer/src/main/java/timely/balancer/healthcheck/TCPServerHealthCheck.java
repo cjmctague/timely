@@ -6,7 +6,7 @@ import timely.client.tcp.TcpClient;
 
 public class TCPServerHealthCheck implements ServerHealthCheck {
 
-    final private TcpClientPool tcpClientPool;
+    private final TcpClientPool tcpClientPool;
 
     public TCPServerHealthCheck(TcpClientPool tcpClientPool) {
         this.tcpClientPool = tcpClientPool;

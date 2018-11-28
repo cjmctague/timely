@@ -55,28 +55,28 @@ public class ArrivalRate {
         }, 900000, 900000);
     }
 
-    synchronized private void resetShort() {
+    private synchronized void resetShort() {
         long now = System.currentTimeMillis();
         shortTermRate = shortTermArrivals / (((double) (now - shortTermLastReset)) / 1000);
         shortTermArrivals = 0;
         shortTermLastReset = now;
     }
 
-    synchronized private void resetMedium() {
+    private synchronized void resetMedium() {
         long now = System.currentTimeMillis();
         mediumTermRate = mediumTermArrivals / (((double) (now - mediumTermLastReset)) / 1000);
         mediumTermArrivals = 0;
         mediumTermLastReset = now;
     }
 
-    synchronized private void resetLong() {
+    private synchronized void resetLong() {
         long now = System.currentTimeMillis();
         longTermRate = longTermArrivals / (((double) (now - longTermLastReset)) / 1000);
         longTermArrivals = 0;
         longTermLastReset = now;
     }
 
-    synchronized public void arrived() {
+    public synchronized void arrived() {
         shortTermArrivals++;
         mediumTermArrivals++;
         longTermArrivals++;
@@ -88,7 +88,7 @@ public class ArrivalRate {
         }
     }
 
-    synchronized private double getShortRate(long now) {
+    private synchronized double getShortRate(long now) {
         if (shortTermRate > 0) {
             return shortTermRate;
         } else {
@@ -96,7 +96,7 @@ public class ArrivalRate {
         }
     }
 
-    synchronized private double getMediumRate(long now) {
+    private synchronized double getMediumRate(long now) {
         if (mediumTermRate > 0) {
             return mediumTermRate;
         } else {
@@ -104,7 +104,7 @@ public class ArrivalRate {
         }
     }
 
-    synchronized private double getLongRate(long now) {
+    private synchronized double getLongRate(long now) {
         if (longTermRate > 0) {
             return longTermRate;
         } else {
@@ -112,7 +112,7 @@ public class ArrivalRate {
         }
     }
 
-    synchronized public void calculateRate() {
+    public synchronized void calculateRate() {
         long now = System.currentTimeMillis();
         // 1 minute
         if (now - shortTermLastReset > 60000) {
@@ -132,7 +132,7 @@ public class ArrivalRate {
         rate = 0.10 * getLongRate(now) + 0.10 * getMediumRate(now) + 0.80 * getShortRate(now);
     }
 
-    synchronized public double getRate() {
+    public synchronized double getRate() {
         if (rate == 0) {
             calculateRate();
         }

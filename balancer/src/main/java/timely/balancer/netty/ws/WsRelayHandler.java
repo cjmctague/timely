@@ -40,7 +40,7 @@ public class WsRelayHandler extends SimpleChannelInboundHandler<SubscriptionRequ
     private final Configuration config;
     private final WsClientPool wsClientPool;
     private MetricResolver metricResolver;
-    static private ObjectMapper mapper;
+    private static ObjectMapper mapper;
     Map<String, Map<String, WsClientHolder>> wsClients = new ConcurrentHashMap<>();
     Map<String, ChannelHandlerContext> wsSubscriptions = new ConcurrentHashMap<>();
 
@@ -186,7 +186,7 @@ public class WsRelayHandler extends SimpleChannelInboundHandler<SubscriptionRequ
 
     }
 
-    static public void sendErrorResponse(ChannelHandlerContext ctx, HttpResponseStatus status, Exception ex) {
+    public static void sendErrorResponse(ChannelHandlerContext ctx, HttpResponseStatus status, Exception ex) {
 
         try {
             TimelyException te = new TimelyException(status.code(), ex.getMessage(), ex.getMessage());

@@ -25,8 +25,8 @@ import timely.sample.aggregators.Avg;
 
 public class AggregationIteratorTest {
 
-    final private SortedMap<Key, Value> testData1 = new TreeMap<>();
-    final private SortedMap<Key, Value> testData2 = new TreeMap<>();
+    private final SortedMap<Key, Value> testData1 = new TreeMap<>();
+    private final SortedMap<Key, Value> testData2 = new TreeMap<>();
 
     @Before
     public void before() {

@@ -158,7 +158,7 @@ public class MetricPutLoadTest {
         }
     }
 
-    static private class ThreadLocalTcpClient extends ThreadLocal<TcpClient> {
+    private static class ThreadLocalTcpClient extends ThreadLocal<TcpClient> {
 
         private String host;
         private int port;

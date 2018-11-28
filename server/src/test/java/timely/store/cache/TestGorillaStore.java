@@ -13,7 +13,7 @@ import timely.model.Value;
 
 public class TestGorillaStore {
 
-    static private Configuration configuration = null;
+    private static Configuration configuration = null;
 
     @BeforeClass
     public static void setup() {
