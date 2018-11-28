@@ -95,13 +95,7 @@ public class TwoWaySSLOpenSSLIT extends QueryBase {
         HttpsURLConnection.setDefaultSSLSocketFactory(getSSLSocketFactory());
         URL loginURL = new URL(url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + "/login");
         HttpsURLConnection con = (HttpsURLConnection) loginURL.openConnection();
-        con.setHostnameVerifier(new HostnameVerifier() {
-
-            @Override
-            public boolean verify(String arg0, SSLSession arg1) {
-                return true;
-            }
-        });
+        con.setHostnameVerifier((arg0, arg1) -> true);
         con.setRequestMethod("GET");
         con.setDoOutput(true);
         con.setRequestProperty("Content-Type", "application/json");
@@ -117,13 +111,7 @@ public class TwoWaySSLOpenSSLIT extends QueryBase {
         Assert.assertEquals(Constants.COOKIE_NAME, sessionCookie.name());
         con = (HttpsURLConnection) url.openConnection();
         con.setRequestProperty(Names.COOKIE, sessionCookie.name() + "=" + sessionCookie.value());
-        con.setHostnameVerifier(new HostnameVerifier() {
-
-            @Override
-            public boolean verify(String arg0, SSLSession arg1) {
-                return true;
-            }
-        });
+        con.setHostnameVerifier((arg0, arg1) -> true);
         return con;
     }
 

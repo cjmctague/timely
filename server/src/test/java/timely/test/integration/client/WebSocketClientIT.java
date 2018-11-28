@@ -93,13 +93,9 @@ public class WebSocketClientIT extends OneWaySSLBase {
 
             @Override
             public void onOpen(Session session, EndpointConfig config) {
-                session.addMessageHandler(new MessageHandler.Whole<String>() {
-
-                    @Override
-                    public void onMessage(String message) {
-                        messages.add(message);
-                        LOG.debug("Message received on Websocket session {}: {}", session.getId(), message);
-                    }
+                session.addMessageHandler((MessageHandler.Whole<String>) message -> {
+                    messages.add(message);
+                    LOG.debug("Message received on Websocket session {}: {}", session.getId(), message);
                 });
             }
 

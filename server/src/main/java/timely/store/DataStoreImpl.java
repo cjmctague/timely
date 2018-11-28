@@ -306,18 +306,14 @@ public class DataStoreImpl implements DataStore {
             }
         }
         if (!toCache.isEmpty()) {
-            final Set<Mutation> muts = new TreeSet<>(new Comparator<Mutation>() {
-
-                @Override
-                public int compare(Mutation o1, Mutation o2) {
-                    if (o1.equals(o2)) {
-                        return 0;
+            final Set<Mutation> muts = new TreeSet<>((o1, o2) -> {
+                if (o1.equals(o2)) {
+                    return 0;
+                } else {
+                    if (o1.hashCode() < o2.hashCode()) {
+                        return -1;
                     } else {
-                        if (o1.hashCode() < o2.hashCode()) {
-                            return -1;
-                        } else {
-                            return 1;
-                        }
+                        return 1;
                     }
                 }
             });
@@ -712,13 +708,9 @@ public class DataStoreImpl implements DataStore {
             }
         }
         List<String> result = new ArrayList<>(tags.keySet());
-        Collections.sort(result, new Comparator<String>() {
-
-            @Override
-            public int compare(String o1, String o2) {
-                // greater count lowers priority
-                return priority.get(o1).intValue() - priority.get(o2).intValue();
-            }
+        Collections.sort(result, (o1, o2) -> {
+            // greater count lowers priority
+            return priority.get(o1).intValue() - priority.get(o2).intValue();
         });
         LOG.trace("Tag priority {}", result);
         return result;

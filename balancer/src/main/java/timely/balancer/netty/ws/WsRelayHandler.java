@@ -76,23 +76,19 @@ public class WsRelayHandler extends SimpleChannelInboundHandler<SubscriptionRequ
                 // we call open
                 // We don't know where to send it to yet anyway because that
                 // depends on the metric.
-                ctx.channel().closeFuture().addListener(new ChannelFutureListener() {
+                ctx.channel().closeFuture().addListener((ChannelFutureListener) future -> {
+                    Map<String, WsClientHolder> metricToClientMap = wsClients.get(currentSubscriptionId);
 
-                    @Override
-                    public void operationComplete(ChannelFuture future) throws Exception {
-                        Map<String, WsClientHolder> metricToClientMap = wsClients.get(currentSubscriptionId);
-
-                        if (metricToClientMap != null) {
-                            synchronized (metricToClientMap) {
-                                // close all clients for this subscriptionId
-                                LOG.info("Channel closed, closing subscriptions for subscriptionId:%s",
-                                        currentSubscriptionId);
-                                for (Map.Entry<String, WsClientHolder> entry : metricToClientMap.entrySet()) {
-                                    entry.getValue().close(wsClientPool);
-                                }
-                                wsClients.remove(currentSubscriptionId);
-                                wsSubscriptions.remove(currentSubscriptionId);
+                    if (metricToClientMap != null) {
+                        synchronized (metricToClientMap) {
+                            // close all clients for this subscriptionId
+                            LOG.info("Channel closed, closing subscriptions for subscriptionId:%s",
+                                    currentSubscriptionId);
+                            for (Map.Entry<String, WsClientHolder> entry : metricToClientMap.entrySet()) {
+                                entry.getValue().close(wsClientPool);
                             }
+                            wsClients.remove(currentSubscriptionId);
+                            wsSubscriptions.remove(currentSubscriptionId);
                         }
                     }
                 });

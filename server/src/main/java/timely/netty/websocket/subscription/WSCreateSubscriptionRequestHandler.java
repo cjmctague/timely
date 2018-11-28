@@ -33,15 +33,11 @@ public class WSCreateSubscriptionRequestHandler extends SimpleChannelInboundHand
         ctx.channel().attr(SubscriptionRegistry.SUBSCRIPTION_ID_ATTR).set(subscriptionId);
         LOG.info("Created subscription {} on channel {}", subscriptionId, ctx);
 
-        ctx.channel().closeFuture().addListener(new ChannelFutureListener() {
-
-            @Override
-            public void operationComplete(ChannelFuture future) throws Exception {
-                Subscription s = SubscriptionRegistry.get().remove(subscriptionId);
-                if (null != s) {
-                    LOG.info("Channel closed, closing subscriptions for subscriptionId: " + subscriptionId);
-                    s.close();
-                }
+        ctx.channel().closeFuture().addListener((ChannelFutureListener) future -> {
+            Subscription s = SubscriptionRegistry.get().remove(subscriptionId);
+            if (null != s) {
+                LOG.info("Channel closed, closing subscriptions for subscriptionId: " + subscriptionId);
+                s.close();
             }
         });
     }
