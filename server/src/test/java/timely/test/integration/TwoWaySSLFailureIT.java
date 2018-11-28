@@ -4,10 +4,8 @@ import java.io.File;
 import java.net.URL;
 import java.util.List;
 
-import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocketFactory;
 
 import io.netty.handler.codec.http.HttpHeaders.Names;

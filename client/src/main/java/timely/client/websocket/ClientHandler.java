@@ -16,7 +16,8 @@ public abstract class ClientHandler extends Endpoint {
     @Override
     public void onOpen(Session session, EndpointConfig config) {
         LOG.info("Websocket session {} opened.", session.getId());
-        session.addMessageHandler((MessageHandler.Whole<String>) message -> LOG.info("Message received on Websocket session {}: {}", session.getId(), message));
+        session.addMessageHandler((MessageHandler.Whole<String>) message -> LOG
+                .info("Message received on Websocket session {}: {}", session.getId(), message));
     }
 
     @Override

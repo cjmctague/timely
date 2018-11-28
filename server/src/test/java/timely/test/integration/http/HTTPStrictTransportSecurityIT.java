@@ -8,7 +8,9 @@ import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 
 import io.netty.handler.codec.http.HttpHeaders.Names;
-import org.junit.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import timely.Server;
 import timely.netty.http.StrictTransportHandler;

@@ -1,10 +1,19 @@
 package timely.store.cache;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+import java.util.TimeZone;
 import java.util.concurrent.locks.StampedLock;
 
 import fi.iki.yak.ts.compression.gorilla.GorillaDecompressor;
