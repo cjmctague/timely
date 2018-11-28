@@ -5,7 +5,7 @@ import timely.api.request.Request;
 
 public interface HttpRequest extends Request {
 
-    public void setHttpRequest(FullHttpRequest httpRequest);
+    void setHttpRequest(FullHttpRequest httpRequest);
 
-    public FullHttpRequest getHttpRequest();
+    FullHttpRequest getHttpRequest();
 }

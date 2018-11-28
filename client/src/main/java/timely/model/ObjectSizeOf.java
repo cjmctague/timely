@@ -19,7 +19,7 @@ public interface ObjectSizeOf {
      */
     long sizeInBytes();
 
-    public static class ObjectInstance {
+    class ObjectInstance {
 
         private Object o;
 
@@ -45,7 +45,7 @@ public interface ObjectSizeOf {
         }
     }
 
-    public static class Sizer {
+    class Sizer {
 
         private static final Logger log = Logger.getLogger(Sizer.class.getCanonicalName());
         public static final short OBJECT_OVERHEAD = 8;

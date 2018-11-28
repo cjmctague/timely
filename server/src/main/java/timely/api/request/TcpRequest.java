@@ -7,6 +7,6 @@ public interface TcpRequest extends Request {
      * 
      * @param line
      */
-    public void parse(String line);
+    void parse(String line);
 
 }

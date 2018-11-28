@@ -4,5 +4,5 @@ import timely.balancer.connection.TimelyBalancedHost;
 
 public interface ServerHealthCheck {
 
-    public boolean isServerHealthy(TimelyBalancedHost timelyBalancedHost);
+    boolean isServerHealthy(TimelyBalancedHost timelyBalancedHost);
 }
