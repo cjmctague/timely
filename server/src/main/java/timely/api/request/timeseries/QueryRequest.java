@@ -289,7 +289,7 @@ public class QueryRequest extends AuthenticatedRequest implements HttpGetRequest
 
         @JsonIgnore
         public boolean isTsuidQuery() {
-            return (this.tsuids.size() > 0);
+            return (!this.tsuids.isEmpty());
         }
 
         public void addTsuid(String tsuid) {
@@ -422,7 +422,7 @@ public class QueryRequest extends AuthenticatedRequest implements HttpGetRequest
     @Override
     public void validate() {
         super.validate();
-        if (queries.size() == 0) {
+        if (queries.isEmpty()) {
             throw new IllegalArgumentException("No query specified.");
         }
     }

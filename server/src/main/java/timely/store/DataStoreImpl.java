@@ -808,7 +808,7 @@ public class DataStoreImpl implements DataStore {
     private void setQueryColumns(ScannerBase scanner, String metric, Map<String, String> tags, Set<Tag> colFamValues)
             throws TimelyException {
 
-        if (colFamValues.size() == 0) {
+        if (colFamValues.isEmpty()) {
             throw new TimelyException(HttpResponseStatus.BAD_REQUEST.code(), "No matching tags",
                     "No tags were found " + " that matched the submitted tags. Please fix and retry");
         }

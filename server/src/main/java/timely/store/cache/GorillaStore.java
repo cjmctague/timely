@@ -67,7 +67,7 @@ public class GorillaStore {
         long oldestRemainingTimestamp = Long.MAX_VALUE;
         long stamp = archivedCompressorLock.writeLock();
         try {
-            if (archivedCompressors.size() > 0) {
+            if (!archivedCompressors.isEmpty()) {
                 Iterator<WrappedGorillaCompressor> itr = archivedCompressors.iterator();
                 long now = System.currentTimeMillis();
                 while (itr.hasNext()) {
@@ -261,7 +261,7 @@ public class GorillaStore {
         }
         stamp = archivedCompressorLock.readLock();
         try {
-            if (archivedCompressors.size() > 0) {
+            if (!archivedCompressors.isEmpty()) {
                 Iterator<WrappedGorillaCompressor> itr = archivedCompressors.iterator();
                 while (itr.hasNext()) {
                     WrappedGorillaCompressor c = itr.next();

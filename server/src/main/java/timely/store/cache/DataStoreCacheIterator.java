@@ -80,7 +80,7 @@ public class DataStoreCacheIterator implements SortedKeyValueIterator<Key, Value
 
             if (addCurrent) {
                 List<WrappedGorillaDecompressor> listDecompressors = entry.getValue().getDecompressors(startTs, endTs);
-                if (listDecompressors.size() > 0) {
+                if (!listDecompressors.isEmpty()) {
                     nextPair = new WrappedGorillaDecompressorIterator(currentTaggedMetric, listDecompressors);
                 }
             }

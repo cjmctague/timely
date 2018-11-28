@@ -61,28 +61,28 @@ public class MetricHistogram implements Serializable, SerializationSchema<Metric
     }
 
     public Double avg() {
-        if (values.size() == 0) {
+        if (values.isEmpty()) {
             return 0.0D;
         }
         return sum() / count();
     }
 
     public Double min() {
-        if (values.size() == 0) {
+        if (values.isEmpty()) {
             return 0.0D;
         }
         return values.get(0);
     }
 
     public Double max() {
-        if (values.size() == 0) {
+        if (values.isEmpty()) {
             return 0.0D;
         }
         return values.get(values.size() - 1);
     }
 
     public Double getPercentile(int p) {
-        if (values.size() == 0) {
+        if (values.isEmpty()) {
             return 0.0D;
         }
         int position = Math.round((p * 1.0f / 100) * values.size());

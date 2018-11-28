@@ -251,7 +251,7 @@ public class WebSocketIT extends OneWaySSLBase {
             ch.writeAndFlush(new TextWebSocketFrame(JsonUtil.getObjectMapper().writeValueAsString(add)));
 
             List<String> response = handler.getResponses();
-            while (response.size() == 0 && handler.isConnected()) {
+            while (response.isEmpty() && handler.isConnected()) {
                 LOG.info("Waiting for web socket response");
                 sleepUninterruptibly(500, TimeUnit.MILLISECONDS);
                 response = handler.getResponses();
@@ -302,7 +302,7 @@ public class WebSocketIT extends OneWaySSLBase {
             ch.writeAndFlush(new TextWebSocketFrame(JsonUtil.getObjectMapper().writeValueAsString(add)));
 
             List<String> response = handler.getResponses();
-            while (response.size() == 0 && handler.isConnected()) {
+            while (response.isEmpty() && handler.isConnected()) {
                 LOG.info("Waiting for web socket response");
                 sleepUninterruptibly(500, TimeUnit.MILLISECONDS);
                 response = handler.getResponses();
@@ -332,7 +332,7 @@ public class WebSocketIT extends OneWaySSLBase {
             sleepUninterruptibly(TestConfiguration.WAIT_SECONDS, TimeUnit.SECONDS);
 
             response = handler.getResponses();
-            while (response.size() == 0 && handler.isConnected()) {
+            while (response.isEmpty() && handler.isConnected()) {
                 LOG.info("Waiting for web socket response");
                 sleepUninterruptibly(500, TimeUnit.MILLISECONDS);
                 response = handler.getResponses();
@@ -373,7 +373,7 @@ public class WebSocketIT extends OneWaySSLBase {
 
             // Confirm receipt of all data sent to this point
             response = handler.getResponses();
-            while (response.size() == 0 && handler.isConnected()) {
+            while (response.isEmpty() && handler.isConnected()) {
                 LOG.info("Waiting for web socket response");
                 sleepUninterruptibly(500, TimeUnit.MILLISECONDS);
                 response = handler.getResponses();
@@ -445,7 +445,7 @@ public class WebSocketIT extends OneWaySSLBase {
             ch.writeAndFlush(new TextWebSocketFrame(JsonUtil.getObjectMapper().writeValueAsString(add)));
 
             List<String> response = handler.getResponses();
-            while (response.size() == 0 && handler.isConnected()) {
+            while (response.isEmpty() && handler.isConnected()) {
                 LOG.info("Waiting for web socket response");
                 sleepUninterruptibly(500, TimeUnit.MILLISECONDS);
                 response = handler.getResponses();
@@ -533,7 +533,7 @@ public class WebSocketIT extends OneWaySSLBase {
             ch.writeAndFlush(new TextWebSocketFrame(JsonUtil.getObjectMapper().writeValueAsString(add)));
 
             List<String> response = handler.getResponses();
-            while (response.size() == 0 && handler.isConnected()) {
+            while (response.isEmpty() && handler.isConnected()) {
                 LOG.info("Waiting for web socket response");
                 sleepUninterruptibly(500, TimeUnit.MILLISECONDS);
                 response = handler.getResponses();
@@ -600,7 +600,7 @@ public class WebSocketIT extends OneWaySSLBase {
 
             // Confirm receipt of all data sent to this point
             List<String> response = handler.getResponses();
-            while (response.size() == 0 && handler.isConnected()) {
+            while (response.isEmpty() && handler.isConnected()) {
                 LOG.info("Waiting for web socket response");
                 sleepUninterruptibly(500, TimeUnit.MILLISECONDS);
                 response = handler.getResponses();
@@ -622,7 +622,7 @@ public class WebSocketIT extends OneWaySSLBase {
 
             // Confirm receipt of all data sent to this point
             List<String> response = handler.getResponses();
-            while (response.size() == 0 && handler.isConnected()) {
+            while (response.isEmpty() && handler.isConnected()) {
                 LOG.info("Waiting for web socket response");
                 sleepUninterruptibly(500, TimeUnit.MILLISECONDS);
                 response = handler.getResponses();
@@ -672,7 +672,7 @@ public class WebSocketIT extends OneWaySSLBase {
 
             // Confirm receipt of all data sent to this point
             List<String> response = handler.getResponses();
-            while (response.size() == 0 && handler.isConnected()) {
+            while (response.isEmpty() && handler.isConnected()) {
                 LOG.info("Waiting for web socket response");
                 sleepUninterruptibly(500, TimeUnit.MILLISECONDS);
                 response = handler.getResponses();
@@ -726,7 +726,7 @@ public class WebSocketIT extends OneWaySSLBase {
 
             // Confirm receipt of all data sent to this point
             List<String> response = handler.getResponses();
-            while (response.size() == 0 && handler.isConnected()) {
+            while (response.isEmpty() && handler.isConnected()) {
                 LOG.info("Waiting for web socket response");
                 sleepUninterruptibly(500, TimeUnit.MILLISECONDS);
                 response = handler.getResponses();
@@ -770,7 +770,7 @@ public class WebSocketIT extends OneWaySSLBase {
 
             // Confirm receipt of all data sent to this point
             List<String> response = handler.getResponses();
-            while (response.size() == 0 && handler.isConnected()) {
+            while (response.isEmpty() && handler.isConnected()) {
                 LOG.info("Waiting for web socket response");
                 sleepUninterruptibly(500, TimeUnit.MILLISECONDS);
                 response = handler.getResponses();
@@ -808,7 +808,7 @@ public class WebSocketIT extends OneWaySSLBase {
             ch.writeAndFlush(new TextWebSocketFrame(request));
             // Confirm receipt of all data sent to this point
             List<String> response = handler.getResponses();
-            while (response.size() == 0 && handler.isConnected()) {
+            while (response.isEmpty() && handler.isConnected()) {
                 LOG.info("Waiting for web socket response");
                 sleepUninterruptibly(500, TimeUnit.MILLISECONDS);
                 response = handler.getResponses();

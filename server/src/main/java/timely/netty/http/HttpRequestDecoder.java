@@ -54,9 +54,9 @@ public class HttpRequestDecoder extends MessageToMessageDecoder<FullHttpRequest>
             });
         });
         String sessionId = buf.toString();
-        if (sessionId.length() == 0 && anonymousAccessAllowed) {
+        if (sessionId.isEmpty() && anonymousAccessAllowed) {
             sessionId = NO_AUTHORIZATIONS;
-        } else if (sessionId.length() == 0) {
+        } else if (sessionId.isEmpty()) {
             sessionId = null;
         }
         return sessionId;
